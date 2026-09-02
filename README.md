@@ -23,6 +23,8 @@ Cloudflare 构建配置：
 | Build output directory | `dist` |
 | Node.js version | `20` |
 
+> 日常怎么更新网站内容，见 [UPDATE.md](./UPDATE.md)。
+
 ## 目录结构
 
 ```
