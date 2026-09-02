@@ -1,0 +1,162 @@
+@import 'tailwindcss';
+
+@theme {
+  /* ── Palette ─────────────────────────────────────────────
+     Warm off-white ground, ink text, one restrained accent
+     derived from the resume's own blue (#2864B5), desaturated. */
+  --color-bg: #fafaf8;
+  --color-surface: #f3f3f0;
+  --color-surface-2: #eeeeea;
+  --color-ink: #181818;
+  --color-ink-2: #6b6b6b;
+  --color-ink-3: #9e9e98;
+  --color-line: #e8e8e5;
+  --color-line-strong: #d8d8d3;
+  --color-accent: #2b4c86;
+  --color-accent-2: #5b7bb8;
+  --color-accent-soft: #eaeff7;
+
+  /* ── Type ────────────────────────────────────────────────
+     Times New Roman carries Latin letters + numerals; CJK falls through.
+       headings → 楷体 (KaiTi); body → 宋体 (SimSun). */
+  --font-sans:
+    'Times New Roman', 'SimSun', '宋体', 'NSimSun', 'Songti SC', 'STSong',
+    'Noto Serif CJK SC', 'Source Han Serif SC', serif;
+  --font-heading:
+    'Times New Roman', 'KaiTi', '楷体', '楷体_GB2312', 'Kaiti SC', 'STKaiti',
+    'Noto Serif CJK SC', 'Source Han Serif SC', serif;
+  --font-numeral: 'Times New Roman', 'Times', serif;
+
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Nav is fixed; keep anchor targets clear of it. */
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Headings take 楷体 (KaiTi); Latin + numerals still fall to Times New Roman. */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+
+  ::selection {
+    background-color: var(--color-accent-soft);
+    color: var(--color-accent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Chinese body copy needs a taller measure than Latin. */
+  p {
+    line-height: 1.85;
+  }
+}
+
+@layer utilities {
+  /* Small caps-style English section labels — the editorial anchor. */
+  .label-en {
+    font-size: 0.6875rem;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-ink-3);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .numeral {
+    font-family: var(--font-numeral);
+    font-weight: 400;
+    font-variant-numeric: lining-nums;
+  }
+
+  /* Underline that grows from the left on hover. */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 320ms var(--ease-out-quint);
+  }
+  .link-underline:hover,
+  .link-underline:focus-visible {
+    background-size: 100% 1px;
+  }
+
+  .hairline {
+    border-color: var(--color-line);
+  }
+}
+
+/* Saving the page as a PDF is a real thing recruiters do. Scroll-reveal leaves
+   un-scrolled sections at opacity 0, which would print as blank pages. */
+@media print {
+  * {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  header,
+  #mobile-menu {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+  section,
+  article,
+  figure {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  section {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.7em;
+    color: #6b6b6b;
+    word-break: break-all;
+  }
+  .overflow-x-auto {
+    overflow: visible !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
