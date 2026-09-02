@@ -11,6 +11,18 @@ npm run build    # 产物在 dist/，纯静态，可丢到任何静态托管
 npm run preview  # 本地预览构建产物
 ```
 
+## 部署（Cloudflare Pages）
+
+已连接 GitHub 仓库 `returnSGD/web-profile`，push 到 `main` 自动构建部署到 `https://returnsgd.pages.dev/`。
+
+Cloudflare 构建配置：
+
+| 配置项 | 值 |
+|---|---|
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Node.js version | `20` |
+
 ## 目录结构
 
 ```
