@@ -1,10 +1,12 @@
-import { timeline } from '../data/resume'
+import { useI18n } from '../i18n'
 import { Reveal } from './Reveal'
 import { Section } from './Section'
 
 export function Experience() {
+  const { t } = useI18n()
+  const { timeline } = t
   return (
-    <Section id="experience" label="Experience" heading="经历">
+    <Section id="experience" label="Experience" heading={t.ui.headings.experience}>
       <ol className="relative">
         {timeline.map((item, i) => (
           <Reveal as="li" key={item.org} delay={i * 0.07} className="group relative">

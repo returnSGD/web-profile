@@ -1,10 +1,12 @@
-import { stack } from '../data/resume'
+import { useI18n } from '../i18n'
 import { Reveal } from './Reveal'
 import { Section } from './Section'
 
 export function Stack() {
+  const { t } = useI18n()
+  const { stack } = t
   return (
-    <Section id="stack" label="Stack" heading="技术栈">
+    <Section id="stack" label="Stack" heading={t.ui.headings.stack}>
       <div className="flex flex-col">
         {stack.map((group, i) => (
           <Reveal key={group.label} delay={i * 0.05}>

@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
-import { email, profile } from '../data/resume'
+import { email } from '../data/content'
+import { useI18n } from '../i18n'
 import { Reveal } from './Reveal'
 
 export function Contact() {
+  const { t } = useI18n()
+  const { profile } = t
   // Assembled after mount so the address never sits in the static HTML.
   const [addr, setAddr] = useState('')
   const [copied, setCopied] = useState(false)
@@ -37,16 +40,15 @@ export function Contact() {
 
         <Reveal delay={0.08}>
           <p className="font-heading mt-10 max-w-[22ch] text-[clamp(2rem,6.5vw,3.75rem)] leading-[1.15] font-medium tracking-tight text-ink">
-            一起做点
+            {t.ui.contactHeading[0]}
             <br />
-            有意思的东西。
+            {t.ui.contactHeading[1]}
           </p>
         </Reveal>
 
         <Reveal delay={0.16}>
           <p className="mt-8 max-w-[34rem] text-[0.9375rem] text-ink-2">
-            如果你在做推荐系统、强化学习或者 Agent 相关的事情，欢迎直接找我聊——
-            无论是实习机会、开源协作，还是单纯想讨论某篇论文。
+            {t.ui.contactIntro}
           </p>
         </Reveal>
 
@@ -75,7 +77,7 @@ export function Contact() {
                     {addr}
                   </a>
                 ) : (
-                  <span className="text-[1.125rem] text-ink-3">载入中…</span>
+                  <span className="text-[1.125rem] text-ink-3">{t.ui.loading}</span>
                 )}
                 <button
                   type="button"
@@ -83,7 +85,7 @@ export function Contact() {
                   disabled={!addr}
                   className="rounded-full border border-line px-3 py-1 text-[0.6875rem] text-ink-2 transition-colors duration-300 hover:border-accent/40 hover:bg-accent-soft hover:text-accent disabled:opacity-40"
                 >
-                  {copied ? '已复制' : '复制'}
+                  {copied ? t.ui.copied : t.ui.copy}
                 </button>
               </div>
             </div>
@@ -94,7 +96,7 @@ export function Contact() {
           <p>
             © {profile.name} · {profile.nameLatin}
           </p>
-          <p>本站内容均来自本人简历，未作夸大。</p>
+          <p>{t.ui.footerNote}</p>
         </div>
       </div>
     </footer>

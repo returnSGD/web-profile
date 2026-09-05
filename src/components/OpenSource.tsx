@@ -1,4 +1,5 @@
-import { contributions, STAR_DATA_ASOF, type Contribution } from '../data/resume'
+import { STAR_DATA_ASOF, type Contribution } from '../data/content'
+import { useI18n } from '../i18n'
 import { Reveal } from './Reveal'
 import { Section } from './Section'
 
@@ -8,10 +9,12 @@ import { Section } from './Section'
  * section is anchored on the numbers that actually exist.
  */
 export function OpenSource() {
+  const { t } = useI18n()
+  const { contributions } = t
   return (
-    <Section id="open-source" label="Open Source" heading="开源贡献" stacked>
+    <Section id="open-source" label="Open Source" heading={t.ui.headings.openSource} stacked>
       <p className="max-w-[42rem] text-[1.0625rem] text-ink-2">
-        比起写出更多代码，我更在意删掉多余的那部分。下面每一条都可以点开原始 PR 核验。
+        {t.ui.openSourceIntro}
       </p>
 
       <div className="mt-14 flex flex-col">
@@ -21,13 +24,13 @@ export function OpenSource() {
         <div className="border-t border-line" aria-hidden="true" />
       </div>
 
-      <p className="mt-6 text-xs text-ink-3">Star 数据截至 {STAR_DATA_ASOF}。</p>
+      <p className="mt-6 text-xs text-ink-3">{t.ui.starAsOf.replace('{date}', STAR_DATA_ASOF)}</p>
     </Section>
   )
 }
 
 function ContributionRow({ item, delay }: { item: Contribution; delay: number }) {
-  const merged = item.status === '已合并'
+  const merged = item.merged
   return (
     <Reveal delay={delay}>
       <div className="group grid gap-x-10 gap-y-5 border-t border-line py-9 transition-colors duration-500 group-hover:border-line-strong md:grid-cols-[15rem_1fr] md:py-11">

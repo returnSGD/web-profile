@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { navItems, profile } from '../data/resume'
+import { useI18n } from '../i18n'
 
 export function Nav() {
+  const { t, lang, toggle } = useI18n()
+  const { navItems, profile } = t
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState<string>('')
@@ -55,7 +57,7 @@ export function Nav() {
         href="#about"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:text-bg"
       >
-        跳到主要内容
+        {t.ui.skipToContent}
       </a>
 
       <header
@@ -66,7 +68,7 @@ export function Nav() {
         }`}
       >
         <nav
-          aria-label="主导航"
+          aria-label={t.ui.navAriaLabel}
           className="mx-auto flex h-16 w-full max-w-[1180px] items-center justify-between px-6 sm:px-10 lg:px-16"
         >
           <a
@@ -92,15 +94,26 @@ export function Nav() {
             ))}
           </ul>
 
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-            className="label-en -mr-2 px-2 py-2 text-ink md:hidden"
-          >
-            {open ? 'Close' : 'Menu'}
-          </button>
+          <div className="flex items-center gap-1">
+            <button
+              type="button"
+              onClick={toggle}
+              aria-label={lang === 'en' ? 'Switch to Chinese' : '切换到英文'}
+              className="label-en rounded-full border border-line px-3 py-1.5 text-ink transition-colors duration-300 hover:border-accent/40 hover:bg-accent-soft hover:text-accent"
+            >
+              {lang === 'en' ? '中文' : 'EN'}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+              className="label-en -mr-2 px-2 py-2 text-ink md:hidden"
+            >
+              {open ? t.ui.close : t.ui.menu}
+            </button>
+          </div>
         </nav>
       </header>
 

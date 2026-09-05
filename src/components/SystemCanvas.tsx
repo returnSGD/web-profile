@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { usePrefersReducedMotion } from '../hooks/useReducedMotion'
+import { useI18n } from '../i18n'
 
 /**
  * The site's one visual gimmick: a quiet diagram of 数据 → 模型 → 智能体 → 系统.
@@ -9,8 +10,6 @@ import { usePrefersReducedMotion } from '../hooks/useReducedMotion'
  *  - Node displacement never exceeds MAX_PULL px, so nothing lurches.
  *  - Off-screen it stops entirely; with reduced-motion it paints one static frame.
  */
-
-const NODE_LABELS = ['数据', '模型', '智能体', '系统'] as const
 
 /** Normalised anchor positions — a loose quadrilateral, deliberately un-symmetric. */
 const ANCHORS: [number, number][] = [
@@ -63,6 +62,8 @@ function buildSatellites(count: number): Satellite[] {
 }
 
 export function SystemCanvas({ className = '' }: { className?: string }) {
+  const { t } = useI18n()
+  const nodeLabels = t.ui.systemNodes
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const wrapRef = useRef<HTMLDivElement>(null)
   const reduced = usePrefersReducedMotion()
@@ -217,7 +218,7 @@ export function SystemCanvas({ className = '' }: { className?: string }) {
         const left = x > width * 0.55
         ctx.textAlign = left ? 'right' : 'left'
         ctx.fillStyle = `rgba(${INK}, ${0.46 + near * 0.3})`
-        ctx.fillText(NODE_LABELS[i], x + (left ? -22 : 22), y)
+        ctx.fillText(nodeLabels[i], x + (left ? -22 : 22), y)
       })
     }
 
@@ -294,14 +295,14 @@ export function SystemCanvas({ className = '' }: { className?: string }) {
       wrap.removeEventListener('pointermove', onPointerMove)
       wrap.removeEventListener('pointerleave', onPointerLeave)
     }
-  }, [reduced])
+  }, [reduced, nodeLabels])
 
   return (
     <div
       ref={wrapRef}
       className={`relative ${className}`}
       role="img"
-      aria-label="系统示意图：数据流向模型，模型驱动智能体，智能体构成系统，系统再产生新的数据。"
+      aria-label={t.ui.systemAria}
     >
       <canvas ref={canvasRef} className="block h-full w-full" />
     </div>

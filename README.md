@@ -1,6 +1,6 @@
 # 许政 · Personal Portfolio
 
-一个中文 editorial 风格的个人作品集单页。所有内容均来自本人简历，未作虚构或夸大。
+一个中英双语的 editorial 风格个人作品集单页：默认英文，右上角可切换中文。所有内容均来自本人简历，未作虚构或夸大。
 
 ## 运行
 
@@ -29,7 +29,8 @@ Cloudflare 构建配置：
 
 ```
 src/
-├─ data/resume.ts          ← 唯一内容源。改文案只改这里
+├─ data/content.ts         ← 唯一内容源（en / zh 双语）。改文案只改这里
+├─ i18n.tsx                ← 语言状态、默认英文、切换按钮的开关逻辑
 ├─ index.css               ← 设计 token（@theme）+ 基础样式 + 打印样式
 ├─ App.tsx
 ├─ hooks/
@@ -53,7 +54,8 @@ src/
 
 ## 改内容
 
-绝大多数改动只需要动 `src/data/resume.ts`：
+绝大多数改动只需要动 `src/data/content.ts`：文件里有 `en` 和 `zh` 两个对象，
+分别对应英文（默认）与中文，改文案时**两处都要同步改**。
 
 | 想改什么 | 改哪个导出 |
 |---|---|

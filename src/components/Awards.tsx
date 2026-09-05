@@ -1,9 +1,11 @@
-import { awards } from '../data/resume'
+import { useI18n } from '../i18n'
 import { Reveal } from './Reveal'
 import { Section } from './Section'
 
 /** Intentionally the quietest section on the page. */
 export function Awards() {
+  const { t } = useI18n()
+  const { awards } = t
   return (
     <Section id="awards" label="Selected Awards">
       <ul className="flex flex-col">

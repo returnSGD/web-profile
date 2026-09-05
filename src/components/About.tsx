@@ -1,10 +1,12 @@
-import { about } from '../data/resume'
+import { useI18n } from '../i18n'
 import { Reveal } from './Reveal'
 import { Section } from './Section'
 
 export function About() {
+  const { t } = useI18n()
+  const { about } = t
   return (
-    <Section id="about" label="About" heading="关于">
+    <Section id="about" label="About" heading={t.ui.headings.about}>
       <Reveal>
         <ul className="flex flex-col gap-1.5 border-b border-line pb-8 sm:flex-row sm:gap-8 sm:pb-9">
           {about.meta.map((m) => (

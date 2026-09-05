@@ -1,11 +1,14 @@
-import { featuredProjects, secondaryProjects, type Project } from '../data/resume'
+import type { Project } from '../data/content'
+import { useI18n } from '../i18n'
 import { ProjectDiagram } from './ProjectDiagram'
 import { Reveal } from './Reveal'
 import { Section } from './Section'
 
 export function Projects() {
+  const { t } = useI18n()
+  const { featuredProjects, secondaryProjects } = t
   return (
-    <Section id="projects" label="Projects" heading="项目" stacked>
+    <Section id="projects" label="Projects" heading={t.ui.headings.projects} stacked>
       {/* Featured — one per row, room to breathe and carry a diagram. */}
       <div className="flex flex-col gap-20 md:gap-28">
         {featuredProjects.map((p, i) => (

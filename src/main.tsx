@@ -5,9 +5,12 @@ import { createRoot } from 'react-dom/client'
 // CJK) — no self-hosted webfonts needed, so nothing leaves the origin.
 import './index.css'
 import App from './App'
+import { I18nProvider } from './i18n'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <I18nProvider>
+      <App />
+    </I18nProvider>
   </StrictMode>,
 )

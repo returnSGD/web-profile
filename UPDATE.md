@@ -30,7 +30,8 @@ npm install
 
 ### 第 1 步：改文件
 
-99% 的文案改动都只动一个文件：**`src/data/resume.ts`**（它是全站唯一内容源）。
+99% 的文案改动都只动一个文件：**`src/data/content.ts`**（它是全站唯一内容源）。
+文件里有 `en`（英文，默认）和 `zh`（中文）两个对象，改文案时**两处都要同步改**。
 具体改哪个字段，见下面「改什么内容改哪个文件」。
 
 ### 第 2 步：本地预览，确认没问题
@@ -61,11 +62,13 @@ push 之后 **30~60 秒**，<https://returnsgd.pages.dev/> 自动更新，刷新
 
 ## 三、改什么内容改哪个文件
 
-### 内容源：`src/data/resume.ts`
+### 内容源：`src/data/content.ts`
+
+> `en` 与 `zh` 两个对象字段一一对应，改哪个字段就两个语言都改。
 
 | 想改什么 | 改哪个字段 | 说明 |
 |---|---|---|
-| 姓名 / 英文名 / 定位 / 主线句 / GitHub | `profile` | 文件顶部 |
+| 姓名 / 英文名 / 定位 / 主线句 / GitHub | `profile` | 文件顶部；英文版姓在后名在前（如 `Zheng Xu`） |
 | 邮箱 | `emailParts` | 拆成 `user` + `domain` 两段，运行时拼接（防爬虫） |
 | 「关于我」的三段正文 / 头衔 | `about.paragraphs` / `about.meta` | |
 | 经历时间线 | `timeline` 数组 | 每项：`year` / `period` / `org` / `role` / `detail` / `keywords` |
@@ -84,7 +87,8 @@ push 之后 **30~60 秒**，<https://returnsgd.pages.dev/> 自动更新，刷新
 | 配色（设计 token） | `src/index.css` 的 `@theme` 部分 |
 | 标题 / 描述 / SEO 关键词 | `index.html` |
 | 页面结构、组件 | `src/App.tsx`、`src/components/` |
-| 大项目的架构图 | `src/components/ProjectDiagram.tsx` |
+| 大项目的架构图 | `src/components/ProjectDiagram.tsx` | 图内文字也走 `content.ts` 的 `diagrams` |
+| 中英文切换 / 默认语言 | `src/i18n.tsx` | 默认英文；切换按钮在 `Nav.tsx` |
 
 ---
 
@@ -92,7 +96,7 @@ push 之后 **30~60 秒**，<https://returnsgd.pages.dev/> 自动更新，刷新
 
 ### 1. 改一段经历
 
-打开 `src/data/resume.ts`，找到 `timeline` 数组，改对应那段的 `detail` / `role` 等文字，保存即可。
+打开 `src/data/content.ts`，找到 `en.timeline` 与 `zh.timeline` 两个数组，改对应那段的 `detail` / `role` 等文字，保存即可。
 
 ### 2. 新增一个项目
 
@@ -103,7 +107,7 @@ push 之后 **30~60 秒**，<https://returnsgd.pages.dev/> 自动更新，刷新
 
 ### 3. 改邮箱
 
-改 `emailParts` 里的 `user` 和 `domain` 两段（比如 `user: 'xxx'`、`domain: 'gmail.com'`），不要写成一个完整字符串。
+改 `emailParts` 里的 `user` 和 `domain` 两段（比如 `user: 'xxx'`、`domain: 'gmail.com'`），不要写成一个完整字符串。`emailParts` 在 `content.ts` 里，中英文共用、只改一处。
 
 ### 4. 加简历 PDF 下载入口
 

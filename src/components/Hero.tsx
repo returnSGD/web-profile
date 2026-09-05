@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { email, profile } from '../data/resume'
+import { email } from '../data/content'
+import { useI18n } from '../i18n'
 import { SystemCanvas } from './SystemCanvas'
 
 const EASE = [0.22, 1, 0.36, 1] as const
@@ -15,6 +16,9 @@ const rise = {
 }
 
 export function Hero() {
+  const { t, lang } = useI18n()
+  const { profile } = t
+  const sep = lang === 'zh' ? '　·　' : ' · '
   return (
     <section
       id="top"
@@ -50,7 +54,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.24, ease: EASE }}
             className="mt-6 text-base font-normal tracking-wide text-ink-2 sm:text-lg"
           >
-            {profile.focus.join('　·　')}
+            {profile.focus.join(sep)}
           </motion.p>
 
           <motion.div
@@ -65,8 +69,7 @@ export function Hero() {
               {profile.thesis}
             </p>
             <p className="mt-3 text-[0.9375rem] text-ink-2">
-              目前在中国科学院自动化研究所做研究，方向是大模型智能体的评测与安全；
-              课余把大量时间花在推荐算法与开源项目上。
+              {t.ui.heroSub}
             </p>
           </motion.div>
 
