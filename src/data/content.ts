@@ -218,6 +218,15 @@ export const en: Content = {
   timeline: [
     {
       year: '2026',
+      period: '2026.09 — Present',
+      org: 'Beijing Caiduodui Information Technology Co., Ltd. (TTC)',
+      role: 'AI Agent Development · Intern',
+      detail:
+        'Designed and built two AI agents on the Feishu (Lark) ecosystem: an automated single-seal document stamping pipeline — Feishu request → Feishu HR data retrieval → Fadada e-seal → Bitable ledger — using "preview-confirm + SHA-256 hash locking" and idempotent de-duplication to make irreversible stamping auditable; and a payroll-data permission query system that puts the security boundary in the Bitable row/column-level permissions rather than prompts, so the agent inherits permissions according to the logged-in user\'s identity.',
+      keywords: ['Feishu Open Platform', 'LLM Agent', 'E-signature', 'Row/Column-level Permissions', 'Idempotency & Audit'],
+    },
+    {
+      year: '2026',
       period: '2026.07 — Present',
       org: 'Institute of Automation, Chinese Academy of Sciences',
       role: 'Prof. Wu Shu\'s group · Research intern',
@@ -747,6 +756,15 @@ export const zh: Content = {
   },
 
   timeline: [
+    {
+      year: '2026',
+      period: '2026.09 — 至今',
+      org: '北京才多对信息技术有限公司（TTC）',
+      role: 'AI Agent 研发 · 实习',
+      detail:
+        '在飞书生态设计与搭建两套 AI Agent：单章文件自动化盖章——飞书发起 → 飞书人事取数 → 法大大电子签章 → 多维表格留痕，用「预览确认 + SHA-256 哈希锁定」与防重幂等把不可逆的盖章变成可审计动作；薪酬数据权限查询——把安全边界放在多维表格的行级/列级权限层而非提示词，让智能体按登录用户身份继承权限。',
+      keywords: ['飞书开放平台', 'LLM Agent', '电子签章', '行级/列级权限', '幂等与审计'],
+    },
     {
       year: '2026',
       period: '2026.07 — 至今',
