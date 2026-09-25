@@ -18,7 +18,7 @@ export interface TimelineItem {
   period: string
   org: string
   role: string
-  detail: string
+  detail: string[]
   keywords: string[]
 }
 
@@ -221,8 +221,10 @@ export const en: Content = {
       period: '2026.09 — Present',
       org: 'Beijing Caiduodui Information Technology Co., Ltd. (TTC)',
       role: 'AI Agent Development · Intern',
-      detail:
-        'Designed and built two AI agents on the Feishu (Lark) ecosystem: an automated single-seal document stamping pipeline — Feishu request → Feishu HR data retrieval → Fadada e-seal → Bitable ledger — using "preview-confirm + SHA-256 hash locking" and idempotent de-duplication to make irreversible stamping auditable; and a payroll-data permission query system that puts the security boundary in the Bitable row/column-level permissions rather than prompts, so the agent inherits permissions according to the logged-in user\'s identity.',
+      detail: [
+        'Built a single-seal document stamping agent on the Feishu ecosystem: a colleague raises a request in Feishu, the agent parses document type / employee ID / seal, Feishu HR pulls the data by employee ID, Fadada applies the e-seal, and the sealed file plus a ledger entry land back in a Feishu Bitable — the whole loop closed inside Feishu. "Preview-confirm + SHA-256 hash locking" and idempotent de-duplication turn irreversible stamping into an auditable act.',
+        'A role-based HR/finance query system: sensitive payroll data lives in a Feishu Bitable, where a native Bitable agent plus advanced permissions (row-level + column-level) places the security boundary at the data-source layer — the agent inherits permissions by the logged-in user\'s identity, so an employee sees only their own row while HR/finance can maintain everything, rather than relying on prompt-level filtering.',
+      ],
       keywords: ['Feishu Open Platform', 'LLM Agent', 'E-signature', 'Row/Column-level Permissions', 'Idempotency & Audit'],
     },
     {
@@ -230,8 +232,9 @@ export const en: Content = {
       period: '2026.07 — Present',
       org: 'Institute of Automation, Chinese Academy of Sciences',
       role: 'Prof. Wu Shu\'s group · Research intern',
-      detail:
+      detail: [
         'Independently responsible for literature review, benchmark evaluation and research-direction exploration, participating fully in group meetings and the entire research process. Systematically mapped the attack and defense landscape for LLM agents, including prompt injection, memory poisoning, backdoor attacks and representation steering.',
+      ],
       keywords: ['LLM Agent Safety', 'Benchmark Evaluation', 'AI-assisted Peer Review', 'Knowledge Graph'],
     },
     {
@@ -239,8 +242,9 @@ export const en: Content = {
       period: '2025.05 — Present',
       org: 'LLM-Augmented Recommender Systems',
       role: 'Independent research',
-      detail:
+      detail: [
         'Reproduced the P5 (Pretrain-Prompt-Predict) framework, and in response to Beam Search\'s inefficiency and tendency toward policy collapse, designed a hybrid recommendation architecture combining POMDP reinforcement learning with memory augmentation, validated component-by-component through a four-stage experiment.',
+      ],
       keywords: ['P5', 'POMDP', 'FAISS Memory', 'Ablation Study'],
     },
     {
@@ -248,8 +252,9 @@ export const en: Content = {
       period: '2024.09 — 2028.06',
       org: 'University of Jinan',
       role: 'Data Science & Big Data Technology · Undergraduate',
-      detail:
+      detail: [
         'Outside of coursework, most of my time goes to recommendation algorithms, reinforcement learning and LLM applications. Mathematical modeling and algorithm competitions built my foundation in statistical modeling and engineering implementation.',
+      ],
       keywords: ['Data Science', 'Statistical Modeling', 'Algorithm Competitions'],
     },
   ],
@@ -761,8 +766,10 @@ export const zh: Content = {
       period: '2026.09 — 至今',
       org: '北京才多对信息技术有限公司（TTC）',
       role: 'AI Agent 研发 · 实习',
-      detail:
-        '在飞书生态设计与搭建两套 AI Agent：单章文件自动化盖章——飞书发起 → 飞书人事取数 → 法大大电子签章 → 多维表格留痕，用「预览确认 + SHA-256 哈希锁定」与防重幂等把不可逆的盖章变成可审计动作；薪酬数据权限查询——把安全边界放在多维表格的行级/列级权限层而非提示词，让智能体按登录用户身份继承权限。',
+      detail: [
+        '在飞书生态搭建单章文件自动化盖章 Agent：同事在飞书里发起 → AI 解析类型/工号/印章 → 飞书人事按工号取数 → 法大大电子签章落章 → 盖章件回传、用印台账写入飞书多维表格，全链路在飞书内闭环；以「预览确认 + SHA-256 哈希锁定」与防重幂等，把不可逆的盖章变成可审计动作。',
+        '面向不同角色的人事财务查询系统：敏感薪酬数据落在飞书多维表格，用多维表格原生智能体 + 高级权限（行级 + 列级）把安全边界放在数据源层，让智能体按登录用户身份继承权限——员工只看本人、HR/财务维护全部，而非依赖提示词拦截。',
+      ],
       keywords: ['飞书开放平台', 'LLM Agent', '电子签章', '行级/列级权限', '幂等与审计'],
     },
     {
@@ -770,8 +777,9 @@ export const zh: Content = {
       period: '2026.07 — 至今',
       org: '中国科学院自动化研究所',
       role: '吴书研究员课题组 · 研究实习',
-      detail:
+      detail: [
         '独立承担文献调研、基准评测与研究思路探索，全程参与组会研讨与科研全流程。系统梳理 LLM Agent 的攻击与防御技术路线，包括提示注入、记忆投毒、后门攻击与表征转向。',
+      ],
       keywords: ['LLM Agent 安全', 'Benchmark 评测', 'AI 辅助学术评审', '知识图谱'],
     },
     {
@@ -779,8 +787,9 @@ export const zh: Content = {
       period: '2025.05 — 至今',
       org: 'LLM 增强推荐系统研究',
       role: '独立科研',
-      detail:
+      detail: [
         '复现 P5（Pretrain-Prompt-Predict）框架，针对 Beam Search 效率低且易产生策略崩塌的问题，设计 POMDP 强化学习结合记忆增强的混合推荐架构，并通过四阶段实验系统验证各组件贡献。',
+      ],
       keywords: ['P5', 'POMDP', 'FAISS 记忆', '消融实验'],
     },
     {
@@ -788,8 +797,9 @@ export const zh: Content = {
       period: '2024.09 — 2028.06',
       org: '济南大学',
       role: '数据科学与大数据技术 · 本科',
-      detail:
+      detail: [
         '课程之外的时间基本都在推荐算法、强化学习与大模型应用上。数学建模与算法竞赛训练打下了统计建模与工程实现的底子。',
+      ],
       keywords: ['数据科学', '统计建模', '算法竞赛'],
     },
   ],

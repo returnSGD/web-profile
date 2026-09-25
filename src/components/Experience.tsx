@@ -28,7 +28,11 @@ export function Experience() {
                 <p className="mt-1.5 text-sm text-ink-2">{item.role}</p>
                 <p className="mt-1 text-xs text-ink-3 sm:hidden">{item.period}</p>
 
-                <p className="mt-5 max-w-[42rem] text-[0.9375rem] text-ink-2">{item.detail}</p>
+                <div className="mt-5 max-w-[42rem] space-y-3 text-[0.9375rem] text-ink-2">
+                  {item.detail.map((p, i) => (
+                    <p key={i}>{p}</p>
+                  ))}
+                </div>
 
                 {/* Present at rest, sharpened on hover — never hidden behind it. */}
                 <ul className="mt-6 flex flex-wrap gap-2">
