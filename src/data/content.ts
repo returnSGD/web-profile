@@ -233,7 +233,7 @@ export const en: Content = {
       org: 'Institute of Automation, Chinese Academy of Sciences',
       role: 'MAIS State Key Laboratory of Multimodal Artificial Intelligence Systems · Remote Research Intern',
       detail: [
-        'Independently responsible for literature review, benchmark evaluation and research-direction exploration, participating fully in group meetings and the entire research process. Systematically mapped the attack and defense landscape for LLM agents, including prompt injection, memory poisoning, backdoor attacks and representation steering.',
+        'Independently responsible for literature review, benchmark evaluation, and the exploration and discussion of research directions, participating fully in group meetings and the entire research process. Systematically mapped the attack and defense landscape for LLM agents, including prompt injection, memory poisoning, backdoor attacks and representation steering. Also responsible for the agent-capability benchmark: studied technical reports such as Qwen3 and Llama3.1, aggregated mainstream agent evaluation datasets, and wrote configurable evaluation scripts to produce assessment results.',
       ],
       keywords: ['LLM Agent Safety', 'Benchmark Evaluation', 'AI-assisted Peer Review', 'Knowledge Graph'],
     },
@@ -778,7 +778,7 @@ export const zh: Content = {
       org: '中国科学院自动化研究所',
       role: 'MAIS 多模态人工智能系统全国重点实验室 · 远程科研实习',
       detail: [
-        '独立承担文献调研、基准评测与研究思路探索，全程参与组会研讨与科研全流程。系统梳理 LLM Agent 的攻击与防御技术路线，包括提示注入、记忆投毒、后门攻击与表征转向。',
+        '独立承担文献调研、基准评测与研究思路的探索与讨论，全程参与组会研讨与科研全流程。系统梳理 LLM Agent 的攻击与防御技术路线，包括提示注入、记忆投毒、后门攻击与表征转向。同时负责 Agent 能力 Benchmark 任务：调研 Qwen3、Llama3.1 等技术报告，聚合主流 Agent 评测数据集，编写可配置测评脚本并产出评估结果。',
       ],
       keywords: ['LLM Agent 安全', 'Benchmark 评测', 'AI 辅助学术评审', '知识图谱'],
     },
