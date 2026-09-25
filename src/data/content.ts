@@ -231,7 +231,7 @@ export const en: Content = {
       year: '2026',
       period: '2026.07 — Present',
       org: 'Institute of Automation, Chinese Academy of Sciences',
-      role: 'Prof. Wu Shu\'s group · Research intern',
+      role: 'MAIS State Key Laboratory of Multimodal Artificial Intelligence Systems · Remote Research Intern',
       detail: [
         'Independently responsible for literature review, benchmark evaluation and research-direction exploration, participating fully in group meetings and the entire research process. Systematically mapped the attack and defense landscape for LLM agents, including prompt injection, memory poisoning, backdoor attacks and representation steering.',
       ],
@@ -776,7 +776,7 @@ export const zh: Content = {
       year: '2026',
       period: '2026.07 — 至今',
       org: '中国科学院自动化研究所',
-      role: '吴书研究员课题组 · 研究实习',
+      role: 'MAIS 多模态人工智能系统全国重点实验室 · 远程科研实习',
       detail: [
         '独立承担文献调研、基准评测与研究思路探索，全程参与组会研讨与科研全流程。系统梳理 LLM Agent 的攻击与防御技术路线，包括提示注入、记忆投毒、后门攻击与表征转向。',
       ],
