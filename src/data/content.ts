@@ -220,7 +220,7 @@ export const en: Content = {
       year: '2026',
       period: '2026.09 — Present',
       org: 'Beijing Caiduodui Information Technology Co., Ltd. (TTC)',
-      role: 'AI Agent Development · Intern',
+      role: 'Functional Support Center - HR Department - Headquarters HR · Agent Productivity Tool Development Intern',
       detail: [
         'Built a single-seal document stamping agent on the Feishu ecosystem: a colleague raises a request in Feishu, the agent parses document type / employee ID / seal, Feishu HR pulls the data by employee ID, Fadada applies the e-seal, and the sealed file plus a ledger entry land back in a Feishu Bitable — the whole loop closed inside Feishu. "Preview-confirm + SHA-256 hash locking" and idempotent de-duplication turn irreversible stamping into an auditable act.',
         'A role-based HR/finance query system: sensitive payroll data lives in a Feishu Bitable, where a native Bitable agent plus advanced permissions (row-level + column-level) places the security boundary at the data-source layer — the agent inherits permissions by the logged-in user\'s identity, so an employee sees only their own row while HR/finance can maintain everything, rather than relying on prompt-level filtering.',
@@ -765,7 +765,7 @@ export const zh: Content = {
       year: '2026',
       period: '2026.09 — 至今',
       org: '北京才多对信息技术有限公司（TTC）',
-      role: 'AI Agent 研发 · 实习',
+      role: '职能支持中心-人力资源部-总部人力资源 · agent 提效工具开发实习',
       detail: [
         '在飞书生态搭建单章文件自动化盖章 Agent：同事在飞书里发起 → AI 解析类型/工号/印章 → 飞书人事按工号取数 → 法大大电子签章落章 → 盖章件回传、用印台账写入飞书多维表格，全链路在飞书内闭环；以「预览确认 + SHA-256 哈希锁定」与防重幂等，把不可逆的盖章变成可审计动作。',
         '面向不同角色的人事财务查询系统：敏感薪酬数据落在飞书多维表格，用多维表格原生智能体 + 高级权限（行级 + 列级）把安全边界放在数据源层，让智能体按登录用户身份继承权限——员工只看本人、HR/财务维护全部，而非依赖提示词拦截。',
