@@ -207,10 +207,12 @@ export const en: Content = {
     meta: [
       'University of Jinan · Data Science & Big Data Technology',
       'Institute of Automation, Chinese Academy of Sciences · In progress',
+      'Beijing Caiduodui Information Technology Co., Ltd. (TTC) · HR Agent Intern',
     ],
     paragraphs: [
       'I study Data Science & Big Data Technology at the University of Jinan. For the past two years I have carried the same question into every project: when observations are incomplete, feedback is delayed and compute is limited, how does a system make good-enough decisions. It can be the trade-offs a recommender system makes under sparse behavior sequences, the policy a reinforcement-learning agent chooses in a partially observable environment, or how an agent corrects itself after a tool call fails.',
       'I am currently working in the lab of Prof. Wu Shu at the Institute of Automation, Chinese Academy of Sciences, on two research threads — LLM agent safety and AI-assisted academic peer review: aggregating mainstream agent evaluation datasets and writing configurable evaluation scripts, and closely reading 24 top-conference papers, extracting each one\'s dataset and baseline, then independently verifying the real structure and release status of 14 of the public datasets. I also proposed my own research direction — for reviewers whose expertise is misaligned with a paper\'s topic, detecting their capability gaps and generating a profile-driven, domain-context remedial package.',
+      'Since September I have also interned in the HR department at TTC, building Feishu-native AI agents for HR automation — a single-seal e-stamping agent (Feishu → Fadada), a role-scoped HR/finance query bot, and the NestJS orchestration backend for the onboarding pipeline, where permissions and auditability live in the data and code layer rather than the prompt.',
       'I also spend a lot of time in other people\'s codebases. I have submitted and merged PRs to LightRAG, n8n, TensorTrade and others, with a habit of writing tests before touching implementation and shipping with zero regressions. More than writing more code, I care about deleting the redundant part — in the LightRAG refactor, I added 973 lines of tests while removing 290 lines of duplicated logic.',
     ],
   },
@@ -743,10 +745,11 @@ export const zh: Content = {
   },
 
   about: {
-    meta: ['济南大学 · 数据科学与大数据技术', '中国科学院自动化研究所 · 在研'],
+    meta: ['济南大学 · 数据科学与大数据技术', '中国科学院自动化研究所 · 在研', '北京才多对信息技术有限公司（TTC）· HR Agent 实习'],
     paragraphs: [
       '我在济南大学读数据科学与大数据技术。过去两年，我把同一个问题反复带进每一个项目：当观测是不完整的、反馈是延迟的、算力是有限的，一个系统该如何做出足够好的决策。它可以是推荐系统面对稀疏行为序列时的取舍，可以是强化学习智能体在部分可观测环境下的策略选择，也可以是一个 Agent 在工具调用失败之后如何自我修正。',
       '目前在中国科学院自动化研究所吴书研究员课题组，围绕大模型智能体安全与 AI 辅助学术评审两个方向做研究：聚合主流 Agent 评测数据集并编写可配置的测评脚本，精读 24 篇顶会论文、逐篇提取数据集与 Baseline 并联网核验其中 14 个公开数据集的真实结构与发布状态。我也提出了自己的研究方向——面向专业背景与论文主题错位的评审人，检测其能力缺口，生成画像驱动的领域上下文补课包。',
+      '九月起我还在 TTC 人力资源部实习，做飞书生态的 HR 提效 AI Agent——单章文件自动盖章（飞书 → 法大大）、按角色分权的人事/财务查询机器人，以及入职流水线的 NestJS 编排后端，让权限与可审计性落在数据层和代码层，而不是提示词。',
       '我同样把时间花在别人的代码库里。为 LightRAG、n8n、TensorTrade 等项目提交并合并过 PR，习惯是先补测试再动实现，交付时保证零回归。比起写出更多代码，我更在意删掉多余的那部分——在 LightRAG 那次重构里，新增 973 行测试的同时删掉了 290 行重复逻辑。',
     ],
   },
