@@ -222,10 +222,11 @@ export const en: Content = {
       org: 'Beijing Caiduodui Information Technology Co., Ltd. (TTC)',
       role: 'Functional Support Center - HR Department - Headquarters HR · Agent Productivity Tool Development Intern',
       detail: [
-        'Built a single-seal document stamping agent on the Feishu ecosystem: a colleague raises a request in Feishu, the agent parses document type / employee ID / seal, Feishu HR pulls the data by employee ID, Fadada applies the e-seal, and the sealed file plus a ledger entry land back in a Feishu Bitable — the whole loop closed inside Feishu. "Preview-confirm + SHA-256 hash locking" and idempotent de-duplication turn irreversible stamping into an auditable act.',
-        'A role-based HR/finance query system: sensitive payroll data lives in a Feishu Bitable, where a native Bitable agent plus advanced permissions (row-level + column-level) places the security boundary at the data-source layer — the agent inherits permissions by the logged-in user\'s identity, so an employee sees only their own row while HR/finance can maintain everything, rather than relying on prompt-level filtering.',
+        'Built a single-seal document stamping agent inside the Feishu ecosystem: a colleague raises a request in Feishu, the agent parses document type / employee ID / seal, Feishu HR pulls the data, the service renders the PDF locally and Fadada applies the authorized auto-seal, then the sealed file and a ledger entry land back in a Feishu Bitable — the loop closes entirely within Feishu. "Preview-confirm + SHA-256 hash locking" and idempotent de-duplication turn irreversible stamping into an auditable act.',
+        'Built an HR/finance query bot as a Feishu self-built app: it resolves the roster by name or employee ID and answers salary, bonus, annual-cost and team-summary queries; permissions are enforced in code as "role + scope" (HR > team lead > OP lead > BP > employee), so an employee sees only their own record; added LLM intent parsing with chain-of-thought, conversation memory with coreference resolution, a safe expression calculator, and full audit logging.',
+        'Built the NestJS orchestration backend for the automated onboarding pipeline (Feishu approval → recruiting → HR → contract → health-check), delivering the M1 skeleton with Feishu auth, webhook decryption and verification, and approval-field parsing, plus stubbed adapters for the remaining platforms.',
       ],
-      keywords: ['Feishu Open Platform', 'LLM Agent', 'E-signature', 'Row/Column-level Permissions', 'Idempotency & Audit'],
+      keywords: ['Feishu Open Platform', 'LLM Agent', 'E-signature', 'Role/Scope Permissions', 'NestJS Orchestration', 'Idempotency & Audit'],
     },
     {
       year: '2026',
@@ -236,16 +237,6 @@ export const en: Content = {
         'Independently responsible for literature review, benchmark evaluation, and the exploration and discussion of research directions, participating fully in group meetings and the entire research process. Systematically mapped the attack and defense landscape for LLM agents, including prompt injection, memory poisoning, backdoor attacks and representation steering. Also responsible for the agent-capability benchmark: studied technical reports such as Qwen3 and Llama3.1, aggregated mainstream agent evaluation datasets, and wrote configurable evaluation scripts to produce assessment results.',
       ],
       keywords: ['LLM Agent Safety', 'Benchmark Evaluation', 'AI-assisted Peer Review', 'Knowledge Graph'],
-    },
-    {
-      year: '2025',
-      period: '2025.05 — Present',
-      org: 'LLM-Augmented Recommender Systems',
-      role: 'Independent research',
-      detail: [
-        'Reproduced the P5 (Pretrain-Prompt-Predict) framework, and in response to Beam Search\'s inefficiency and tendency toward policy collapse, designed a hybrid recommendation architecture combining POMDP reinforcement learning with memory augmentation, validated component-by-component through a four-stage experiment.',
-      ],
-      keywords: ['P5', 'POMDP', 'FAISS Memory', 'Ablation Study'],
     },
     {
       year: '2024',
@@ -767,10 +758,11 @@ export const zh: Content = {
       org: '北京才多对信息技术有限公司（TTC）',
       role: '职能支持中心-人力资源部-总部人力资源 · agent 提效工具开发实习',
       detail: [
-        '在飞书生态搭建单章文件自动化盖章 Agent：同事在飞书里发起 → AI 解析类型/工号/印章 → 飞书人事按工号取数 → 法大大电子签章落章 → 盖章件回传、用印台账写入飞书多维表格，全链路在飞书内闭环；以「预览确认 + SHA-256 哈希锁定」与防重幂等，把不可逆的盖章变成可审计动作。',
-        '面向不同角色的人事财务查询系统：敏感薪酬数据落在飞书多维表格，用多维表格原生智能体 + 高级权限（行级 + 列级）把安全边界放在数据源层，让智能体按登录用户身份继承权限——员工只看本人、HR/财务维护全部，而非依赖提示词拦截。',
+        '在飞书生态搭建单章文件自动化盖章 Agent：同事在飞书发起 → AI 解析文件类型/工号/印章 → 飞书人事取数 → 自建渲染 PDF → 法大大授权自动签落章 → 盖章件回传、用印台账写入飞书多维表格，全链路在飞书内闭环；以「预览确认 + SHA-256 哈希锁定」与防重幂等，把不可逆的盖章变成可审计动作。',
+        '搭建飞书自建应用的人事/财务查询机器人：按姓名/工号查花名册，并支持薪酬、年终奖、全年成本与团队汇总查询；权限在代码层用「角色 + 范围」硬编码（HR > 团队负责人 > BP > 员工），员工只能查本人；接入 LLM 意图解析 + 思维链、会话记忆与指代消歧、安全表达式计算器，全程审计留痕。',
+        '用 NestJS 搭建「飞书审批 → 招聘 → 人事 → 合同 → 体检」全自动入职流水线编排后端，完成 M1 骨架与飞书链路（鉴权、Webhook 事件解密验签、审批字段解析），并为其余平台预留适配器接口。',
       ],
-      keywords: ['飞书开放平台', 'LLM Agent', '电子签章', '行级/列级权限', '幂等与审计'],
+      keywords: ['飞书开放平台', 'LLM Agent', '电子签章', '角色/范围权限', 'NestJS 编排', '幂等与审计'],
     },
     {
       year: '2026',
@@ -781,16 +773,6 @@ export const zh: Content = {
         '独立承担文献调研、基准评测与研究思路的探索与讨论，全程参与组会研讨与科研全流程。系统梳理 LLM Agent 的攻击与防御技术路线，包括提示注入、记忆投毒、后门攻击与表征转向。同时负责 Agent 能力 Benchmark 任务：调研 Qwen3、Llama3.1 等技术报告，聚合主流 Agent 评测数据集，编写可配置测评脚本并产出评估结果。',
       ],
       keywords: ['LLM Agent 安全', 'Benchmark 评测', 'AI 辅助学术评审', '知识图谱'],
-    },
-    {
-      year: '2025',
-      period: '2025.05 — 至今',
-      org: 'LLM 增强推荐系统研究',
-      role: '独立科研',
-      detail: [
-        '复现 P5（Pretrain-Prompt-Predict）框架，针对 Beam Search 效率低且易产生策略崩塌的问题，设计 POMDP 强化学习结合记忆增强的混合推荐架构，并通过四阶段实验系统验证各组件贡献。',
-      ],
-      keywords: ['P5', 'POMDP', 'FAISS 记忆', '消融实验'],
     },
     {
       year: '2024',
