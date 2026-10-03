@@ -1,7 +1,6 @@
 import { MotionConfig } from 'framer-motion'
 
 import { About } from './components/About'
-import { Awards } from './components/Awards'
 import { Contact } from './components/Contact'
 import { Experience } from './components/Experience'
 import { Hero } from './components/Hero'
@@ -25,7 +24,6 @@ export default function App() {
         <OpenSource />
         <Research />
         <Stack />
-        <Awards />
       </main>
       <Contact />
     </MotionConfig>

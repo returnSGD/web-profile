@@ -69,12 +69,6 @@ export interface StackGroup {
   items: string[]
 }
 
-export interface Award {
-  year: string
-  title: string
-  detail: string
-}
-
 export interface NavItem {
   id: string
   label: string
@@ -180,7 +174,6 @@ export interface Content {
   contributions: Contribution[]
   interests: Interest[]
   stack: StackGroup[]
-  awards: Award[]
   navItems: NavItem[]
   ui: Ui
   diagrams: { unified: UnifiedDiagram; p5rl: P5RLDiagram; cat: CatDiagram }
@@ -196,7 +189,7 @@ export const en: Content = {
   profile: {
     name: 'Zheng Xu',
     nameLatin: 'Zheng Xu',
-    focus: ['Recommender Systems', 'Reinforcement Learning', 'LLM Agents'],
+    focus: ['LLM Agents', 'Recommender Systems', 'Reinforcement Learning'],
     thesis:
       'I care about how intelligent systems make better decisions when information is limited.',
     github: 'https://github.com/returnSGD',
@@ -561,12 +554,12 @@ export const en: Content = {
     },
     {
       index: '03',
-      title: 'LLM Agents: Evaluation & Safety',
+      title: 'LLM Agents: Research & Tooling',
       titleEn: '',
       build:
-        'Aggregating mainstream agent evaluation datasets and writing configurable evaluation scripts to produce assessment results.',
-      study: 'Attack and defense techniques — prompt injection, memory poisoning, backdoor attacks and representation steering.',
-      care: 'How an agent\'s capability boundaries can be measured honestly, rather than overfit to a benchmark.',
+        'Agent research at the Institute of Automation (safety benchmarks, evaluation scripts) plus Feishu-native HR agent tools at TTC — e-stamping, a role-scoped query bot, an onboarding pipeline.',
+      study: 'Prompt injection, memory poisoning, backdoor attacks, representation steering, and how production agents put permissions and auditability in code.',
+      care: 'How to measure an agent\'s capability and safety honestly, and keep its behavior auditable once it ships.',
     },
     {
       index: '04',
@@ -580,7 +573,7 @@ export const en: Content = {
   ],
 
   stack: [
-    { label: 'LANGUAGES', title: 'Programming Languages', items: ['Python', 'TypeScript', 'C / C++', 'SQL'] },
+    { label: 'LANGUAGES', title: 'Programming Languages', items: ['Python', 'TypeScript', 'Node.js', 'C / C++', 'SQL'] },
     {
       label: 'MACHINE LEARNING',
       title: 'Machine Learning / Deep Learning',
@@ -589,7 +582,7 @@ export const en: Content = {
     {
       label: 'LLM & AGENT',
       title: 'LLM & Agents',
-      items: ['LLM Applications', 'RAG', 'MCP', 'Claude Code', 'Tool Calling', 'Agent Runtime', 'Prompt Engineering'],
+      items: ['LLM Applications', 'RAG', 'MCP', 'Claude Code', 'Tool Calling', 'Agent Runtime', 'Prompt Engineering', 'Feishu Open Platform'],
     },
     {
       label: 'ALGORITHMS',
@@ -599,37 +592,12 @@ export const en: Content = {
     {
       label: 'SYSTEMS',
       title: 'Engineering Tools',
-      items: ['Git / GitHub', 'FastAPI', 'Electron + React', 'Linux', 'Docker'],
+      items: ['Git / GitHub', 'FastAPI', 'Electron + React', 'NestJS', 'Linux', 'Docker'],
     },
     {
       label: 'COLLABORATION',
       title: 'Open-source Collaboration',
       items: ['PR Review', 'Issue Triage', 'Testing & Documentation', 'Zero-regression Delivery'],
-    },
-  ],
-
-  awards: [
-    {
-      year: '2026.02',
-      title: 'Interdisciplinary Contest in Modeling (MCM/ICM)',
-      detail:
-        'Constructed a Bayesian hierarchical model with a Gamma-distribution prior and MCMC posterior inference, extracting static/dynamic features to estimate unobservable latent variables; validated robustness with R-hat convergence diagnostics and bootstrap resampling.',
-    },
-    {
-      year: '2025.09',
-      title: 'China Undergraduate Mathematical Contest in Modeling (CUMCM)',
-      detail:
-        'Multi-dimensional feature engineering → improved IRODDPSO algorithm → medically constrained K-means optimized grouping → Monte Carlo simulation error analysis.',
-    },
-    {
-      year: '2025.09',
-      title: 'National College Computer Ability Challenge · Big Data Challenge',
-      detail: 'Practiced deep-learning applications of Transformer and CNN on a flower-recognition task.',
-    },
-    {
-      year: '2025.05',
-      title: 'Blue Bridge Cup National Software and IT Talent Competition (C/C++ Track)',
-      detail: 'Provincial second prize.',
     },
   ],
 
@@ -648,7 +616,7 @@ export const en: Content = {
     menu: 'Menu',
     close: 'Close',
     heroSub:
-      'Currently researching at the Institute of Automation, Chinese Academy of Sciences, on the evaluation and safety of LLM agents; outside of coursework, most of my time goes to recommendation algorithms and open source.',
+      'Currently a remote research intern at the Institute of Automation, Chinese Academy of Sciences, working on LLM agent research and safety; and an HR intern at TTC building Feishu-native efficiency agent tools.',
     contactHeading: ['Let\'s build', 'something interesting.'],
     contactIntro:
       'If you\'re working on recommender systems, reinforcement learning or agents, feel free to reach out — whether it\'s an internship, open-source collaboration, or just wanting to discuss a paper.',
@@ -738,7 +706,7 @@ export const zh: Content = {
   profile: {
     name: '许政',
     nameLatin: 'Xu Zheng',
-    focus: ['推荐系统', '强化学习', 'LLM Agent'],
+    focus: ['LLM Agent', '推荐系统', '强化学习'],
     thesis: '我关心智能系统如何在信息有限时做出更好的决策。',
     github: 'https://github.com/returnSGD',
     githubHandle: 'returnSGD',
@@ -1093,11 +1061,11 @@ export const zh: Content = {
     },
     {
       index: '03',
-      title: 'LLM Agent：评测与安全',
-      titleEn: 'Agent Evaluation & Safety',
-      build: '聚合主流 Agent 评测数据集，编写可配置的测评脚本并产出评估结果。',
-      study: '提示注入、记忆投毒、后门攻击与表征转向等攻防技术路线。',
-      care: 'Agent 的能力边界如何被诚实地度量，而不是被 benchmark 过拟合。',
+      title: 'LLM Agent：研发与工具',
+      titleEn: 'Agent Research & Tooling',
+      build: '自动化所做 Agent 研发（安全评测集与可配置测评脚本），TTC 做飞书生态的 HR 提效 Agent 工具——自动盖章、分权查询机器人、入职流水线。',
+      study: '提示注入、记忆投毒、后门攻击、表征转向等攻防，以及生产环境 Agent 如何把权限与可审计性落到代码。',
+      care: '如何诚实地度量 Agent 的能力与安全边界，并在它真正上线后依然保持可审计。',
     },
     {
       index: '04',
@@ -1110,7 +1078,7 @@ export const zh: Content = {
   ],
 
   stack: [
-    { label: 'LANGUAGES', title: '编程语言', items: ['Python', 'TypeScript', 'C / C++', 'SQL'] },
+    { label: 'LANGUAGES', title: '编程语言', items: ['Python', 'TypeScript', 'Node.js', 'C / C++', 'SQL'] },
     {
       label: 'MACHINE LEARNING',
       title: '机器学习 / 深度学习',
@@ -1119,7 +1087,7 @@ export const zh: Content = {
     {
       label: 'LLM & AGENT',
       title: '大模型与 Agent',
-      items: ['LLM 应用', 'RAG', 'MCP', 'Claude Code', '工具调用', 'Agent Runtime', 'Prompt 工程'],
+      items: ['LLM 应用', 'RAG', 'MCP', 'Claude Code', '工具调用', 'Agent Runtime', 'Prompt 工程', '飞书开放平台'],
     },
     {
       label: 'ALGORITHMS',
@@ -1129,37 +1097,12 @@ export const zh: Content = {
     {
       label: 'SYSTEMS',
       title: '工程工具',
-      items: ['Git / GitHub', 'FastAPI', 'Electron + React', 'Linux', 'Docker'],
+      items: ['Git / GitHub', 'FastAPI', 'Electron + React', 'NestJS', 'Linux', 'Docker'],
     },
     {
       label: 'COLLABORATION',
       title: '开源协作',
       items: ['PR Review', 'Issue Triage', '测试与文档沉淀', '零回归交付'],
-    },
-  ],
-
-  awards: [
-    {
-      year: '2026.02',
-      title: '美国大学生数学建模竞赛 MCM/ICM',
-      detail:
-        '构造 Gamma 分布先验的贝叶斯层次模型配合 MCMC 后验推断，提取静态 / 动态特征估计不可观测潜变量；以 R-hat 收敛诊断与 Bootstrap 重采样验证鲁棒性。',
-    },
-    {
-      year: '2025.09',
-      title: '高教社杯全国大学生数学建模竞赛',
-      detail:
-        '多维特征工程 → 改进 IRODDPSO 算法 → 医学约束 K-means 优化分组 → 蒙特卡洛模拟误差分析。',
-    },
-    {
-      year: '2025.09',
-      title: '全国高校计算机能力挑战赛 · 大数据挑战赛',
-      detail: '在花卉识别任务上实践 Transformer 与 CNN 的深度学习应用。',
-    },
-    {
-      year: '2025.05',
-      title: '蓝桥杯全国软件和信息技术专业人才大赛 C/C++ 赛道',
-      detail: '省级二等奖。',
     },
   ],
 
@@ -1177,7 +1120,7 @@ export const zh: Content = {
     navAriaLabel: '主导航',
     menu: '菜单',
     close: '关闭',
-    heroSub: '目前在中国科学院自动化研究所做研究，方向是大模型智能体的评测与安全；课余把大量时间花在推荐算法与开源项目上。',
+    heroSub: '目前在中科院自动化研究所远程实习，做 LLM Agent 研发与安全；同时在 TTC 搭建飞书生态的 HR 提效 Agent 工具。',
     contactHeading: ['一起做点', '有意思的东西。'],
     contactIntro:
       '如果你在做推荐系统、强化学习或者 Agent 相关的事情，欢迎直接找我聊——无论是实习机会、开源协作，还是单纯想讨论某篇论文。',
