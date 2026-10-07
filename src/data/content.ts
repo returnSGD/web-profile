@@ -167,7 +167,7 @@ export interface Content {
     github: string
     githubHandle: string
   }
-  about: { meta: string[]; paragraphs: string[] }
+  about: { meta: string[]; paragraphs: string[]; quote: { text: string; note: string; source: string } }
   timeline: TimelineItem[]
   featuredProjects: Project[]
   secondaryProjects: Project[]
@@ -208,6 +208,11 @@ export const en: Content = {
       'Since September I have also interned in the HR department at TTC, building Feishu-native AI agents for HR automation — a single-seal e-stamping agent (Feishu → Fadada), a role-scoped HR/finance query bot, and the NestJS orchestration backend for the onboarding pipeline, where permissions and auditability live in the data and code layer rather than the prompt.',
       'I also spend a lot of time in other people\'s codebases. I have submitted and merged PRs to LightRAG, n8n, TensorTrade and others, with a habit of writing tests before touching implementation and shipping with zero regressions. More than writing more code, I care about deleting the redundant part — in the LightRAG refactor, I added 973 lines of tests while removing 290 lines of duplicated logic.',
     ],
+    quote: {
+      text: 'You are a "high-exploration, high-pragmatism, low-gambling, strong career-capital" technical builder: you love solving problems and making things, and you naturally turn experience into tools, methodology and transferable assets. You are not attached to fame, and you do not treat entrepreneurship as an ultimate goal — you would rather build career optionality through high-quality platforms and technical ability. Your greatest strengths are learning speed, empirical thinking, engineering execution and risk control; your biggest risk is exploring too broadly without converging.',
+      note: 'You do not lack the ability to choose more lives. What you still need to prove is whether you can give up 90% of the possibilities and go deep on the remaining 10%.',
+      source: '— from a deep interview based on the Human 3.0 model',
+    },
   },
 
   timeline: [
@@ -720,6 +725,11 @@ export const zh: Content = {
       '九月起我还在 TTC 人力资源部实习，做飞书生态的 HR 提效 AI Agent——单章文件自动盖章（飞书 → 法大大）、按角色分权的人事/财务查询机器人，以及入职流水线的 NestJS 编排后端，让权限与可审计性落在数据层和代码层，而不是提示词。',
       '我同样把时间花在别人的代码库里。为 LightRAG、n8n、TensorTrade 等项目提交并合并过 PR，习惯是先补测试再动实现，交付时保证零回归。比起写出更多代码，我更在意删掉多余的那部分——在 LightRAG 那次重构里，新增 973 行测试的同时删掉了 290 行重复逻辑。',
     ],
+    quote: {
+      text: '你是一个「高探索、高实用主义、低赌博、强职业资本意识」的技术型建设者：喜欢解决问题、创造东西，天然倾向于把经验沉淀成工具、方法论与可迁移资产；不迷恋名望、不把创业当终极目标，更希望靠高质量平台与技术能力建立自己的职业选择权。你最大的优势是学习速度、实证思维、工程执行力与风险控制，最大的风险是探索过强而收敛不足。',
+      note: '你不缺「选择更多人生」的能力，真正需要证明的是——能否主动放弃 90% 的可能性，然后把剩下的 10% 做深。',
+      source: '—— 来自一次基于 Human 3.0 模型的深度访谈',
+    },
   },
 
   timeline: [
