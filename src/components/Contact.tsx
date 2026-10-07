@@ -9,6 +9,7 @@ export function Contact() {
   // Assembled after mount so the address never sits in the static HTML.
   const [addr, setAddr] = useState('')
   const [copied, setCopied] = useState(false)
+  const [copiedW, setCopiedW] = useState(false)
   useEffect(() => setAddr(email()), [])
 
   const copy = async () => {
@@ -19,6 +20,16 @@ export function Contact() {
     } catch {
       // Clipboard denied (insecure context, or the user said no) — the mailto
       // link beside this button still works, so there is nothing to report.
+    }
+  }
+
+  const copyWechat = async () => {
+    try {
+      await navigator.clipboard.writeText('returnDP')
+      setCopiedW(true)
+      window.setTimeout(() => setCopiedW(false), 1800)
+    } catch {
+      // Clipboard denied — nothing to report.
     }
   }
 
@@ -86,6 +97,20 @@ export function Contact() {
                   className="rounded-full border border-line px-3 py-1 text-[0.6875rem] text-ink-2 transition-colors duration-300 hover:border-accent/40 hover:bg-accent-soft hover:text-accent disabled:opacity-40"
                 >
                   {copied ? t.ui.copied : t.ui.copy}
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <p className="label-en">WeChat</p>
+              <div className="mt-2.5 flex flex-wrap items-center gap-3">
+                <span className="text-[1.125rem] text-ink">returnDP</span>
+                <button
+                  type="button"
+                  onClick={copyWechat}
+                  className="rounded-full border border-line px-3 py-1 text-[0.6875rem] text-ink-2 transition-colors duration-300 hover:border-accent/40 hover:bg-accent-soft hover:text-accent"
+                >
+                  {copiedW ? t.ui.copied : t.ui.copy}
                 </button>
               </div>
             </div>
