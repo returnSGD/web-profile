@@ -191,7 +191,7 @@ export const en: Content = {
     nameLatin: 'Zheng Xu',
     focus: ['LLM Agents', 'Recommender Systems', 'Reinforcement Learning'],
     thesis:
-      'I care about how intelligent systems make better decisions when information is limited.',
+      'I care about turning technology into useful, transferable things.',
     github: 'https://github.com/returnSGD',
     githubHandle: 'returnSGD',
   },
@@ -203,7 +203,7 @@ export const en: Content = {
       'Beijing Caiduodui Information Technology Co., Ltd. (TTC) · HR Agent Intern',
     ],
     paragraphs: [
-      'I study Data Science & Big Data Technology at the University of Jinan. For the past two years I have carried the same question into every project: when observations are incomplete, feedback is delayed and compute is limited, how does a system make good-enough decisions. It can be the trade-offs a recommender system makes under sparse behavior sequences, the policy a reinforcement-learning agent chooses in a partially observable environment, or how an agent corrects itself after a tool call fails.',
+      'I study Data Science & Big Data Technology at the University of Jinan. For the past two years I have carried the same question into every project: when observations are incomplete, feedback is delayed and compute is limited, how does a system make good-enough decisions. It can be the trade-offs a recommender system makes under sparse behavior sequences, the policy a reinforcement-learning agent chooses in a partially observable environment, or how an agent corrects itself after a tool call fails. More than learning more, I want to distill every experience into tools, methods, and transferable assets.',
       'I am currently working in the lab of Prof. Wu Shu at the Institute of Automation, Chinese Academy of Sciences, on two research threads — LLM agent safety and AI-assisted academic peer review: aggregating mainstream agent evaluation datasets and writing configurable evaluation scripts, and closely reading 24 top-conference papers, extracting each one\'s dataset and baseline, then independently verifying the real structure and release status of 14 of the public datasets. I also proposed my own research direction — for reviewers whose expertise is misaligned with a paper\'s topic, detecting their capability gaps and generating a profile-driven, domain-context remedial package.',
       'Since September I have also interned in the HR department at TTC, building Feishu-native AI agents for HR automation — a single-seal e-stamping agent (Feishu → Fadada), a role-scoped HR/finance query bot, and the NestJS orchestration backend for the onboarding pipeline, where permissions and auditability live in the data and code layer rather than the prompt.',
       'I also spend a lot of time in other people\'s codebases. I have submitted and merged PRs to LightRAG, n8n, TensorTrade and others, with a habit of writing tests before touching implementation and shipping with zero regressions. More than writing more code, I care about deleting the redundant part — in the LightRAG refactor, I added 973 lines of tests while removing 290 lines of duplicated logic.',
@@ -211,7 +211,7 @@ export const en: Content = {
     quote: {
       text: 'You are a "high-exploration, high-pragmatism, low-gambling, strong career-capital" technical builder: you love solving problems and making things, and you naturally turn experience into tools, methodology and transferable assets. You are not attached to fame, and you do not treat entrepreneurship as an ultimate goal — you would rather build career optionality through high-quality platforms and technical ability. Your greatest strengths are learning speed, empirical thinking, engineering execution and risk control; your biggest risk is exploring too broadly without converging.',
       note: 'You do not lack the ability to choose more lives. What you still need to prove is whether you can give up 90% of the possibilities and go deep on the remaining 10%.',
-      source: '— from a deep interview based on the Human 3.0 model',
+      source: '— from a deep interview',
     },
   },
 
@@ -712,7 +712,7 @@ export const zh: Content = {
     name: '许政',
     nameLatin: 'Xu Zheng',
     focus: ['LLM Agent', '推荐系统', '强化学习'],
-    thesis: '我关心智能系统如何在信息有限时做出更好的决策。',
+    thesis: '我关心如何把技术变成有用的、可带走的东西。',
     github: 'https://github.com/returnSGD',
     githubHandle: 'returnSGD',
   },
@@ -720,7 +720,7 @@ export const zh: Content = {
   about: {
     meta: ['济南大学 · 数据科学与大数据技术', '中国科学院自动化研究所 · 在研', '北京才多对信息技术有限公司（TTC）· HR Agent 实习'],
     paragraphs: [
-      '我在济南大学读数据科学与大数据技术。过去两年，我把同一个问题反复带进每一个项目：当观测是不完整的、反馈是延迟的、算力是有限的，一个系统该如何做出足够好的决策。它可以是推荐系统面对稀疏行为序列时的取舍，可以是强化学习智能体在部分可观测环境下的策略选择，也可以是一个 Agent 在工具调用失败之后如何自我修正。',
+      '我在济南大学读数据科学与大数据技术。过去两年，我把同一个问题反复带进每一个项目：当观测是不完整的、反馈是延迟的、算力是有限的，一个系统该如何做出足够好的决策。它可以是推荐系统面对稀疏行为序列时的取舍，可以是强化学习智能体在部分可观测环境下的策略选择，也可以是一个 Agent 在工具调用失败之后如何自我修正。比起学会更多，我更想把每段经历沉淀成工具、方法论和可迁移资产。',
       '目前在中国科学院自动化研究所吴书研究员课题组，围绕大模型智能体安全与 AI 辅助学术评审两个方向做研究：聚合主流 Agent 评测数据集并编写可配置的测评脚本，精读 24 篇顶会论文、逐篇提取数据集与 Baseline 并联网核验其中 14 个公开数据集的真实结构与发布状态。我也提出了自己的研究方向——面向专业背景与论文主题错位的评审人，检测其能力缺口，生成画像驱动的领域上下文补课包。',
       '九月起我还在 TTC 人力资源部实习，做飞书生态的 HR 提效 AI Agent——单章文件自动盖章（飞书 → 法大大）、按角色分权的人事/财务查询机器人，以及入职流水线的 NestJS 编排后端，让权限与可审计性落在数据层和代码层，而不是提示词。',
       '我同样把时间花在别人的代码库里。为 LightRAG、n8n、TensorTrade 等项目提交并合并过 PR，习惯是先补测试再动实现，交付时保证零回归。比起写出更多代码，我更在意删掉多余的那部分——在 LightRAG 那次重构里，新增 973 行测试的同时删掉了 290 行重复逻辑。',
@@ -728,7 +728,7 @@ export const zh: Content = {
     quote: {
       text: '你是一个「高探索、高实用主义、低赌博、强职业资本意识」的技术型建设者：喜欢解决问题、创造东西，天然倾向于把经验沉淀成工具、方法论与可迁移资产；不迷恋名望、不把创业当终极目标，更希望靠高质量平台与技术能力建立自己的职业选择权。你最大的优势是学习速度、实证思维、工程执行力与风险控制，最大的风险是探索过强而收敛不足。',
       note: '你不缺「选择更多人生」的能力，真正需要证明的是——能否主动放弃 90% 的可能性，然后把剩下的 10% 做深。',
-      source: '—— 来自一次基于 Human 3.0 模型的深度访谈',
+      source: '—— 来自一次深度访谈',
     },
   },
 
