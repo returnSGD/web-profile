@@ -30,6 +30,22 @@
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Dark mode — the same warm, restrained palette inverted. */
+.dark {
+  color-scheme: dark;
+  --color-bg: #101013;
+  --color-surface: #16161a;
+  --color-surface-2: #1c1c21;
+  --color-ink: #e7e6e1;
+  --color-ink-2: #a6a6a1;
+  --color-ink-3: #75756f;
+  --color-line: #26262a;
+  --color-line-strong: #38383e;
+  --color-accent: #7fa1d6;
+  --color-accent-2: #9db4dd;
+  --color-accent-soft: #1c2536;
+}
+
 @layer base {
   :root {
     color-scheme: light;

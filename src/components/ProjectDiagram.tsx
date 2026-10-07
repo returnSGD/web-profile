@@ -11,11 +11,11 @@ import { useI18n } from '../i18n'
  * language-agnostic tokens (code names, formulas, numbers) stay inline.
  */
 
-const INK = '#181818'
-const INK2 = '#6B6B6B'
-const INK3 = '#9E9E98'
-const LINE = '#D8D8D3'
-const ACCENT = '#2B4C86'
+const INK = 'var(--color-ink)'
+const INK2 = 'var(--color-ink-2)'
+const INK3 = 'var(--color-ink-3)'
+const LINE = 'var(--color-line-strong)'
+const ACCENT = 'var(--color-accent)'
 
 export function ProjectDiagram({ kind }: { kind: DiagramKind }) {
   const { t } = useI18n()

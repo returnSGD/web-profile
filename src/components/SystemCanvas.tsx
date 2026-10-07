@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { usePrefersReducedMotion } from '../hooks/useReducedMotion'
 import { useI18n } from '../i18n'
+import { useTheme } from '../theme'
 
 /**
  * The site's one visual gimmick: a quiet diagram of 数据 → 模型 → 智能体 → 系统.
@@ -28,8 +29,24 @@ const CHAIN: [number, number][] = [
 ]
 const CROSS: [number, number][] = [[0, 2]]
 
-const INK = '24, 24, 24'
-const ACCENT = '43, 76, 134'
+/** Resolve a theme color from CSS and return it as an "r, g, b" string for canvas use. */
+function cssRgb(varName: string): string {
+  const hex = getComputedStyle(document.documentElement).getPropertyValue(varName).trim()
+  if (/^#[0-9a-f]{3}$/i.test(hex)) {
+    const r = parseInt(hex.charAt(1) + hex.charAt(1), 16)
+    const g = parseInt(hex.charAt(2) + hex.charAt(2), 16)
+    const b = parseInt(hex.charAt(3) + hex.charAt(3), 16)
+    return r + ', ' + g + ', ' + b
+  }
+  if (/^#[0-9a-f]{6}$/i.test(hex)) {
+    const n = hex.slice(1)
+    const r = parseInt(n.slice(0, 2), 16)
+    const g = parseInt(n.slice(2, 4), 16)
+    const b = parseInt(n.slice(4, 6), 16)
+    return r + ', ' + g + ', ' + b
+  }
+  return '24, 24, 24'
+}
 
 const MAX_PULL = 6 // px — hard ceiling on cursor-driven displacement
 const PULL_RADIUS = 150 // px
@@ -67,6 +84,7 @@ export function SystemCanvas({ className = '' }: { className?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const wrapRef = useRef<HTMLDivElement>(null)
   const reduced = usePrefersReducedMotion()
+  const { resolved } = useTheme()
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -74,6 +92,9 @@ export function SystemCanvas({ className = '' }: { className?: string }) {
     if (!canvas || !wrap) return
     const ctx = canvas.getContext('2d')
     if (!ctx) return
+
+    const INK = cssRgb('--color-ink')
+    const ACCENT = cssRgb('--color-accent')
 
     let width = 0
     let height = 0
@@ -295,7 +316,7 @@ export function SystemCanvas({ className = '' }: { className?: string }) {
       wrap.removeEventListener('pointermove', onPointerMove)
       wrap.removeEventListener('pointerleave', onPointerLeave)
     }
-  }, [reduced, nodeLabels])
+  }, [reduced, nodeLabels, resolved])
 
   return (
     <div
