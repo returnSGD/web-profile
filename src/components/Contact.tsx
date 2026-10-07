@@ -121,7 +121,6 @@ export function Contact() {
           <p>
             © {profile.name} · {profile.nameLatin}
           </p>
-          <p>{t.ui.footerNote}</p>
         </div>
       </div>
     </footer>

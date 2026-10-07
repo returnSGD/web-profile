@@ -140,7 +140,6 @@ export interface Ui {
   loading: string
   copy: string
   copied: string
-  footerNote: string
   openSourceIntro: string
   starAsOf: string
   researchIntro: string
@@ -624,11 +623,10 @@ export const en: Content = {
       'Currently a remote research intern at the Institute of Automation, Chinese Academy of Sciences, working on LLM agent research and safety; and an HR intern at TTC building Feishu-native efficiency agent tools.',
     contactHeading: ['Let\'s build', 'something interesting.'],
     contactIntro:
-      'If you\'re working on recommender systems, reinforcement learning or agents, feel free to reach out — whether it\'s an internship, open-source collaboration, or just wanting to discuss a paper.',
+      'I would love to do what I love with like-minded people — whether research collaboration or shipping real products.',
     loading: 'Loading…',
     copy: 'Copy',
     copied: 'Copied',
-    footerNote: 'All content is drawn from my own résumé, without exaggeration.',
     openSourceIntro:
       'More than writing more code, I care about deleting the redundant part. Every entry below links to the original PR for verification.',
     starAsOf: 'Star counts as of {date}.',
@@ -1133,11 +1131,10 @@ export const zh: Content = {
     heroSub: '目前在中科院自动化研究所远程实习，做 LLM Agent 研发与安全；同时在 TTC 搭建飞书生态的 HR 提效 Agent 工具。',
     contactHeading: ['一起做点', '有意思的东西。'],
     contactIntro:
-      '如果你在做推荐系统、强化学习或者 Agent 相关的事情，欢迎直接找我聊——无论是实习机会、开源协作，还是单纯想讨论某篇论文。',
+      '非常希望与志同道合的人一起做喜欢的事——无论是科研合作还是工程落地',
     loading: '载入中…',
     copy: '复制',
     copied: '已复制',
-    footerNote: '本站内容均来自本人简历，未作夸大。',
     openSourceIntro: '比起写出更多代码，我更在意删掉多余的那部分。下面每一条都可以点开原始 PR 核验。',
     starAsOf: 'Star 数据截至 {date}。',
     researchIntro: '与其罗列技能，不如说清楚：我在做什么、在读什么、以及真正在意哪个问题。',
