@@ -10,6 +10,30 @@ export function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState<string>('')
+  const [pageViews, setPageViews] = useState<number | null>(null)
+
+  useEffect(() => {
+    if (import.meta.env.DEV) return
+
+    const controller = new AbortController()
+    fetch('https://counterapi.com/api/returnsgd.pages.dev/view/homepage-total', {
+      signal: controller.signal,
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error('Counter request failed')
+        return response.json() as Promise<{ value?: unknown }>
+      })
+      .then((data) => {
+        if (typeof data.value === 'number' && Number.isFinite(data.value)) {
+          setPageViews(data.value)
+        }
+      })
+      .catch(() => {
+        // The counter is an enhancement; a failed request should not affect the page.
+      })
+
+    return () => controller.abort()
+  }, [])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -73,12 +97,19 @@ export function Nav() {
           aria-label={t.ui.navAriaLabel}
           className="mx-auto flex h-16 w-full max-w-[1180px] items-center justify-between px-6 sm:px-10 lg:px-16"
         >
-          <a
-            href="#top"
-            className="text-[0.9375rem] font-medium tracking-[0.14em] text-ink transition-opacity hover:opacity-60"
-          >
-            {profile.name}
-          </a>
+          <div className="flex min-w-0 flex-col justify-center">
+            <a
+              href="#top"
+              className="text-[0.9375rem] font-medium tracking-[0.14em] text-ink transition-opacity hover:opacity-60"
+            >
+              {profile.name}
+            </a>
+            <span className="mt-0.5 text-[0.625rem] leading-none tracking-wide text-ink-3 sm:text-[0.6875rem]">
+              {lang === 'zh' ? '你是第 ' : 'You are visitor #'}
+              {pageViews === null ? '—' : new Intl.NumberFormat(lang === 'zh' ? 'zh-CN' : 'en-US').format(pageViews)}
+              {lang === 'zh' ? ' 个浏览者' : ''}
+            </span>
+          </div>
 
           <ul className="hidden items-center gap-8 md:flex">
             {navItems.map((item) => (
