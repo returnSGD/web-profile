@@ -16,7 +16,7 @@ export function Nav() {
     if (import.meta.env.DEV) return
 
     const controller = new AbortController()
-    fetch('https://counterapi.com/api/returnsgd.pages.dev/view/homepage-total', {
+    fetch('https://countapi.mileshilliard.com/api/v1/hit/returnsgd_pages_dev_homepage_views_6d7097e', {
       signal: controller.signal,
     })
       .then((response) => {
@@ -24,9 +24,8 @@ export function Nav() {
         return response.json() as Promise<{ value?: unknown }>
       })
       .then((data) => {
-        if (typeof data.value === 'number' && Number.isFinite(data.value)) {
-          setPageViews(data.value)
-        }
+        const value = Number(data.value)
+        if (Number.isFinite(value) && value >= 0) setPageViews(value)
       })
       .catch(() => {
         // The counter is an enhancement; a failed request should not affect the page.
